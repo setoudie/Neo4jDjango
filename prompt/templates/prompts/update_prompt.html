@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Prompt</title>
+</head>
+<body>
+<h1>Update Prompt</h1>
+<form action="{% url 'update_prompt' prompt_id=prompt.uid %}" method="post">
+    {% csrf_token %}
+    <label for="content">Prompt Content:</label>
+    <textarea id="content" name="content" required>{{ prompt.content }}</textarea><br><br>
+
+    <input type="submit" value="Update Prompt">
+</form>
+</body>
+</html>
