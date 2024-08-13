@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Prompts</title>
+</head>
+<body>
+<h1>List of All Prompts</h1>
+<ul>
+    {% for prompt in prompts %}
+        <li>{{ prompt.content }} - Owner: {{ prompt.owner }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

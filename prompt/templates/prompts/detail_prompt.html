@@ -9,8 +9,8 @@
 <h1>Prompt Details</h1>
 <p><strong>Content:</strong> {{ prompt.content }}</p>
 <p><strong>Owner:</strong> {{ owners|join:", " }}</p>
-<a href="{% url 'update_prompt' prompt_id=prompt.uid %}">Update Prompt</a><br>
-<a href="{% url 'delete_prompt' prompt_id=prompt.uid %}">Delete Prompt</a><br>
+<a href="{% url 'update_prompt' prompt_id=prompt.pid %}">Update Prompt</a><br>
+<a href="{% url 'delete_prompt' prompt_id=prompt.pid %}">Delete Prompt</a><br>
 <a href="{% url 'create_prompt' %}">Create New Prompt</a>
 </body>
 </html>

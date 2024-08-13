@@ -44,3 +44,10 @@ def delete_prompt(request, prompt_id):
         return redirect('create_prompt')
     return render(request, 'prompts/delete_prompt.html', {'prompt': prompt})
 
+
+def show_all_prompt(request):
+    prompts = Prompt.nodes.all()
+    owners = Owner.nodes.all()
+    for o,p in zip(owners, prompts):
+        print(p.content, o.username)
+    return render(request, 'prompts/show_all_prompt.html', {'prompts': prompts})
