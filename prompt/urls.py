@@ -3,5 +3,8 @@ from . import views
 
 urlpatterns =[
     path('', views.index, name='index'),
-    path('prompt', views.test, name='test'),
+    path('test', views.test, name='test'),
+    path('create/', views.create_prompt, name='create_prompt'),
+    path('update/<str:prompt_id>/', views.update_prompt, name='update_prompt'),
+    path('delete/<str:prompt_id>/', views.delete_prompt, name='delete_prompt'),
 ]

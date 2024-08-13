@@ -1,3 +1,13 @@
-from django.db import models
+from neomodel import StructuredNode, StringProperty, UniqueIdProperty, RelationshipTo
 
-# Create your models here.
+# Modèle pour les propriétaires
+class Owner(StructuredNode):
+    uid = UniqueIdProperty()
+    username = StringProperty(unique_index=True, required=True)
+    # password = StringProperty()  # Décommente si tu souhaites stocker les mots de passe
+
+# Modèle pour les prompts
+class Prompt(StructuredNode):
+    pid = UniqueIdProperty()
+    content = StringProperty(required=True)
+    owner = RelationshipTo(Owner, 'Created by')  # Relation avec le modèle Owner
