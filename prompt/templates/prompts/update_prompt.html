@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Update Prompt</h1>
-<form action="{% url 'update_prompt' prompt_id=prompt.uid %}" method="post">
+<form action="{% url 'update_prompt' prompt_id=prompt.pid %}" method="post">
     {% csrf_token %}
     <label for="content">Prompt Content:</label>
     <textarea id="content" name="content" required>{{ prompt.content }}</textarea><br><br>

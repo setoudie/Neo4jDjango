@@ -14,7 +14,7 @@ def index(request):
 def test(request):
     return HttpResponse('<li> Test 1 </li>')
 
-
+# Route pour creer un prompt
 def create_prompt(request):
     if request.method == 'POST':
         data = request.POST
@@ -26,17 +26,21 @@ def create_prompt(request):
     return render(request, 'prompts/create_prompt.html')
 
 def update_prompt(request, prompt_id):
-    prompt = get_object_or_404(Prompt, pid=prompt_id)
+    prompt = Prompt.nodes.get(pid=prompt_id)
+
+    print(prompt_id)
+    print(f"\n\n {prompt}")
+
     if request.method == 'POST':
         data = request.POST
         prompt.content = data.get('content', prompt.content)
         prompt.save()
-        # return redirect('get_prompt', prompt_id=prompt.pid)
     return render(request, 'prompts/update_prompt.html', {'prompt': prompt})
 
 def delete_prompt(request, prompt_id):
-    prompt = get_object_or_404(Prompt, pid=prompt_id)
+    prompt = Prompt.nodes.get(pid=prompt_id)
     if request.method == 'POST':
         prompt.delete()
         return redirect('create_prompt')
     return render(request, 'prompts/delete_prompt.html', {'prompt': prompt})
+

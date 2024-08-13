@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prompt/', include('prompt.urls')), # my first django route : prompt route
+    path('prompt/', include('prompt.urls')), # All prompt urls route
     path('users/', include('users.urls')),
 ]
