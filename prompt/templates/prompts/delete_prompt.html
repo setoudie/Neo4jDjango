@@ -9,10 +9,9 @@
 <h1>Delete Prompt</h1>
 <p>Are you sure you want to delete the prompt with the following content?</p>
 <p>{{ prompt.content }}</p>
-<form action="{% url 'delete_prompt' prompt_id=prompt.uid %}" method="post">
+<form action="{% url 'delete_prompt' prompt_id=prompt.pid %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Delete Prompt">
 </form>
-<a href="{% url 'get_prompt' prompt_id=prompt.uid %}">Cancel</a>
 </body>
 </html>
